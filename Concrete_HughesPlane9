@@ -105,7 +105,7 @@ CG := CorrelationGroup(ig);
 
 AG := AutomorphismGroup(ig);
 
-ok,cg:=CosetGeometry(ig);
+cg:=CosetGeometry(ig);
 d,v,e:=Diagram(cg);
 for x in v do print x,Label(x);end for;
 for x in e do print x,Label(x);end for;
