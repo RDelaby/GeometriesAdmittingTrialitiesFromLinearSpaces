@@ -101,9 +101,10 @@ IsThin(ig);
 
 IsRC(ig);
 
-CorrelationGroup(ig);
+CG := CorrelationGroup(ig);
 
-AutomorphismGroup(ig);
+AG := AutomorphismGroup(ig);
+
 ok,cg:=CosetGeometry(ig);
 d,v,e:=Diagram(cg);
 for x in v do print x,Label(x);end for;
