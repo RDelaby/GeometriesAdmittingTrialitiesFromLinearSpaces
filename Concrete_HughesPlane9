@@ -101,8 +101,6 @@ IsThin(ig);
 
 IsRC(ig);
 
-IsFTGeometry(ig);
-
 CorrelationGroup(ig);
 
 AutomorphismGroup(ig);
