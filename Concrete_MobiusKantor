@@ -1,0 +1,105 @@
+/* Build the triangle complex of the Mobiüs-Kantor geometry, it admits an automorphism group GL(2,3), is not FT and not RC. */
+
+edges := [{1,9},{9,2},{2,10},{10,3},{3,11},{11,4},{4,12},{12,1},{1,13},{9,6},{2,14},{10,7},{3,15},{11,8},{4,16},{12,5},{5,14},{13,8},{13,7},{6,16},{6,15},{14,8},{7,16},{5,15}];
+
+Graph := Graph<16|Set(e)>;
+v := VertexSet(Graph);
+AssignLabels(v,[1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2]);
+ig2 := IncidenceGeometry(Graph);
+
+Elts := [* *];
+
+for x in [1 .. 3] do
+
+        for L in [9..16] do
+
+                for P in [1..8] do
+
+                        if ({P,L} in edges) then
+
+                                J := [* x, L, P *];
+
+                                Append(~Elts,J);
+
+                        end if;
+
+                end for;
+
+        end for;
+
+end for;
+
+#Elts;
+
+e := [];
+
+n := Truncate(#Elts/3);
+
+for i in [1 .. n] do
+
+        for j in [n+1 .. 2*n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+            
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+
+end for;
+
+for i in [2*n+1 .. 3*n] do
+
+        for j in [1 .. n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+end for;
+
+for i in [n+1 .. 2*n] do
+
+        for j in [2*n+1 .. 3*n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+
+end for;
+
+gr := Graph<#Elts|Set(e)>;
+
+v := VertexSet(gr);
+
+labels := [];
+
+for i in [1 .. n] do
+
+        Append(~labels,1);
+
+end for;
+
+for j in [1 .. n] do
+
+        Append(~labels,2);
+
+end for;
+
+for k in [1 .. n] do
+
+        Append(~labels,3);
+
+end for;
+
+AssignLabels(v,labels);
+
+ig := IncidenceGeometry(gr);
