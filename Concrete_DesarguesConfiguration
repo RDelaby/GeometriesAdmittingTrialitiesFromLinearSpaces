@@ -1,0 +1,105 @@
+/* Build the triangle complex of the Desargues configuration. */
+
+edges := [{1,11},{1,12},{1,17},{2,14},{2,15},{2,17},{3,13},{3,11},{3,18},{4,14},{4,16},{4,18},{5,12},{5,13},{5,19},{6,15},{6,16},{6,19},{7,13},{7,16},{7,20},{8,12},{8,15},{8,20},{9,11},{9,14},{9,20},{10,17},{10,18},{10,19}];
+
+Graph := Graph<20|Set(edges)>;
+v := VertexSet(Graph);
+AssignLabels(v,[1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2]);
+ig2 := IncidenceGeometry(Graph);
+
+Elts := [* *];
+
+for x in [1 .. 3] do
+
+        for L in [10..20] do
+
+                for P in [1..10] do
+
+                        if ({P,L} in edges) then
+
+                                J := [* x, L, P *];
+
+                                Append(~Elts,J);
+
+                        end if;
+
+                end for;
+
+        end for;
+
+end for;
+
+#Elts;
+
+e := [];
+
+n := Truncate(#Elts/3);
+
+for i in [1 .. n] do
+
+        for j in [n+1 .. 2*n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+            
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+
+end for;
+
+for i in [2*n+1 .. 3*n] do
+
+        for j in [1 .. n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+end for;
+
+for i in [n+1 .. 2*n] do
+
+        for j in [2*n+1 .. 3*n] do
+
+                if ({Elts[i][3],Elts[j][2]} in edges) and not({Elts[j][3],Elts[i][2]} in edges) then
+
+                        Append(~e,{i,j});
+
+                end if;
+
+        end for;
+
+end for;
+
+gr := Graph<#Elts|Set(e)>;
+
+v := VertexSet(gr);
+
+labels := [];
+
+for i in [1 .. n] do
+
+        Append(~labels,1);
+
+end for;
+
+for j in [1 .. n] do
+
+        Append(~labels,2);
+
+end for;
+
+for k in [1 .. n] do
+
+        Append(~labels,3);
+
+end for;
+
+AssignLabels(v,labels);
+
+ig := IncidenceGeometry(gr);
