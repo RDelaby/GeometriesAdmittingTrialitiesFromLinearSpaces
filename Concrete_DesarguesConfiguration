@@ -1,4 +1,5 @@
-/* Build the triangle complex of the Desargues configuration. */
+/* Build the triangle complex of the Desargues configuration. The triangle complex is FT and AG := S5. Since there are
+120 chambers in ig, AG acts strictly transitively on the chambers. */
 
 edges := [{1,11},{1,12},{1,17},{2,14},{2,15},{2,17},{3,13},{3,11},{3,18},{4,14},{4,16},{4,18},{5,12},{5,13},{5,19},{6,15},{6,16},{6,19},{7,13},{7,16},{7,20},{8,12},{8,15},{8,20},{9,11},{9,14},{9,20},{10,17},{10,18},{10,19}];
 
