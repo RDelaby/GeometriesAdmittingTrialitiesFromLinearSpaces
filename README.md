@@ -1,0 +1,5 @@
+Each filename is of the form Concrete_Geometry or Coset_Geometry. In the Concrete_Geometry case, the magma program constructs element by element by triangle complex associated to Geometry. It then computes if the resulting geometry is flag transitive, residually connected, ..
+In the Coset_Geometry case, the magma program constructs the triangle complex associated to Geometry using Cosets. To have this we have to know the automorphism group G of the triangle complex and that it acts flag-transitively on it.
+Let (a,b,c) be a triangle in Geometry.
+In this case, the maximal parabolics can be taken as G1 := Stab(G,{b}) meet Stab(G,[a,b]), G2 := Stab(G,{c}) meet Stab(G,[b,c])) and G3 := Stab(G,{a}) meet Stab(G,[c,a])). This process is much faster to compute the geometry in question and works well for the triangle complexes
+over the projective planes, affine planes, complete graphs, etc.
