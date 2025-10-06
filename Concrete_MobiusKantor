@@ -1,4 +1,4 @@
-/* Build the triangle complex of the Mobiüs-Kantor geometry, it admits an automorphism group GL(2,3), is not FT and not RC. */
+/* Build the triangle complex of the Mobiüs-Kantor geometry. It is not a geometry, it admits an automorphism group GL(2,3), is not FT and not RC. */
 
 edges := [{1,9},{9,2},{2,10},{10,3},{3,11},{11,4},{4,12},{12,1},{1,13},{9,6},{2,14},{10,7},{3,15},{11,8},{4,16},{12,5},{5,14},{13,8},{13,7},{6,16},{6,15},{14,8},{7,16},{5,15}];
 
