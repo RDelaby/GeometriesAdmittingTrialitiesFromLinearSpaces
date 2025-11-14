@@ -1,4 +1,5 @@
-/* warning : since this is not a linear space, different definitions of the triangle complex are not equivalent. I use a particular one which leads to a geometry that is not FT, RC, AG = M12, CG = M12 x C3 */
+/* Triangle complex built over the steiner system S(5,6,12). This is an incidence system not FT, AutomorphismGroup is M12, CorrelationGroup is M12 x C3 */
+
 load m12;
 
 base := {1,2,3,4,5,10};
